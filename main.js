@@ -68,8 +68,15 @@ for (let k = 0; k < shotData.length; k++) {
     console.log(`${shotData[k][datestampIndex]}     ${shotData[k][timestampIndex]}      ${shotData[k][shotTimeIndex]} seconds`);
 }
 
+let avgShot = 0;
+for (let m = 0; m < shotData.length; m++) {
+    avgShot += shotData[m][shotTimeIndex];
+}
+avgShot /= shotData.length;
+console.log(`\nAverage shot: ${avgShot} seconds\n`);
+
 //Ask user to enter a year
-let userYear = readline.questionInt("\nWhat year would you like to display? ");
+let userYear = readline.questionInt("What year would you like to display? ");
 //Return message if no data; "Stringing Characters Together" and "Control Structures and Logic" skills
 if (userYear < 2020 || userYear > 2024) {
     console.log(`Sorry, no data from ${userYear}!`);
